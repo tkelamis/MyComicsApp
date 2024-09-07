@@ -134,3 +134,4 @@ C:\Users\kelam\Desktop\Projects\ComicsProject\MyComics\obj\Debug\net8.0\refint\M
 C:\Users\kelam\Desktop\Projects\ComicsProject\MyComics\obj\Debug\net8.0\MyComics.pdb
 C:\Users\kelam\Desktop\Projects\ComicsProject\MyComics\obj\Debug\net8.0\MyComics.genruntimeconfig.cache
 C:\Users\kelam\Desktop\Projects\ComicsProject\MyComics\obj\Debug\net8.0\ref\MyComics.dll
+C:\Users\kelam\Desktop\Projects\ComicsProject\MyComics\obj\Debug\net8.0\MyComics.sourcelink.json

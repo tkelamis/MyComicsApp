@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MyComics")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+65d4e34bba54e0d15106e02e6edb6a8bc36515d4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+50f1f14d7af8f5230562e9dadc3e2e193a1c00b5")]
 [assembly: System.Reflection.AssemblyProductAttribute("MyComics")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MyComics")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
