@@ -1,0 +1,85 @@
+{
+  "hash": "ced68ad7",
+  "configHash": "3bf4c695",
+  "lockfileHash": "9d3fb757",
+  "browserHash": "63eb88a3",
+  "optimized": {
+    "@angular/common": {
+      "src": "../../../../../node_modules/@angular/common/fesm2022/common.mjs",
+      "file": "@angular_common.js",
+      "fileHash": "b8b819d9",
+      "needsInterop": false
+    },
+    "@angular/common/http": {
+      "src": "../../../../../node_modules/@angular/common/fesm2022/http.mjs",
+      "file": "@angular_common_http.js",
+      "fileHash": "198bdd12",
+      "needsInterop": false
+    },
+    "@angular/core": {
+      "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "c381706f",
+      "needsInterop": false
+    },
+    "@angular/forms": {
+      "src": "../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
+      "file": "@angular_forms.js",
+      "fileHash": "e789756f",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "bda0ed49",
+      "needsInterop": false
+    },
+    "@angular/router": {
+      "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
+      "file": "@angular_router.js",
+      "fileHash": "2dbf4182",
+      "needsInterop": false
+    },
+    "@angular/platform-browser/animations/async": {
+      "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/animations/async.mjs",
+      "file": "@angular_platform-browser_animations_async.js",
+      "fileHash": "ee056a66",
+      "needsInterop": false
+    },
+    "@angular/material/snack-bar": {
+      "src": "../../../../../node_modules/@angular/material/fesm2022/snack-bar.mjs",
+      "file": "@angular_material_snack-bar.js",
+      "fileHash": "62e20b73",
+      "needsInterop": false
+    },
+    "@angular/platform-browser/animations": {
+      "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/animations.mjs",
+      "file": "@angular_platform-browser_animations.js",
+      "fileHash": "68e33622",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "browser-RWVKLOCS": {
+      "file": "browser-RWVKLOCS.js"
+    },
+    "chunk-LEPZ2Y4J": {
+      "file": "chunk-LEPZ2Y4J.js"
+    },
+    "chunk-5IAL6CS2": {
+      "file": "chunk-5IAL6CS2.js"
+    },
+    "chunk-4IC67BCD": {
+      "file": "chunk-4IC67BCD.js"
+    },
+    "chunk-SRUJGQGD": {
+      "file": "chunk-SRUJGQGD.js"
+    },
+    "chunk-XIQPQ3YC": {
+      "file": "chunk-XIQPQ3YC.js"
+    },
+    "chunk-BJWBSQLD": {
+      "file": "chunk-BJWBSQLD.js"
+    }
+  }
+}

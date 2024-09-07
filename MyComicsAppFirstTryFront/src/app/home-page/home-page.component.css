@@ -1,0 +1,33 @@
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.fullscreen-background {
+  background-image: url('/images/myHome.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  gap:2rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 3rem;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
