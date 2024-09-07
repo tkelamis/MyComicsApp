@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ComicService } from '../Services/comic.service';
 import { Comic } from '../Shared/Models/Comic';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-comic-list',
@@ -10,7 +11,7 @@ import { Comic } from '../Shared/Models/Comic';
 export class ComicListComponent {
   comics: Comic[] = [];
 
-  constructor(private comicService: ComicService) { }
+  constructor(private comicService: ComicService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.getAllComicsFromAPI();
@@ -23,24 +24,36 @@ export class ComicListComponent {
     });
   }
 
-  deleteComic(comic: Comic) {
-    if (comic && comic.id) {
-      this.comicService.deleteComicFromDatabase(comic.id.toString()).subscribe(
-        () => {
-          console.log("Comic deleted successfully");
-          this.getAllComicsFromAPI();
-        },
-        (error) => {
-          console.error('Error deleting comic:', error);
-        }
-      );
-    } else {
-      console.error('Invalid comic or comic ID.');
+  onRefreshRequestedAfterDelete(event: { flag?: boolean, comic?: Comic }) {
+    if (event.flag) {
+      this.snackBarMessageDeletionSuccess(event.comic?.title);
+      this.getAllComicsFromAPI();
+    }
+    else {
+      this.snackBarMessageDeletionFailed(event.comic?.title);
     }
   }
 
-  cancelDelete(): void {
-    // Handle cancellation if needed
-    console.log('Delete action was canceled');
+
+
+  snackBarMessageDeletionSuccess(textToAdd: any): void {
+    const title = String(textToAdd);
+    this.snackBar.open(`Comic "${title}" deleted successfully!`, undefined, {
+      duration: 3000,
+      horizontalPosition: 'center',
+      verticalPosition: 'top'
+    })
   }
+
+  snackBarMessageDeletionFailed(textToAdd: any): void {
+    const title = String(textToAdd);
+    this.snackBar.open(`Comic "${title}" deletion failed!`, undefined, {
+      duration: 3000,
+      horizontalPosition: 'center',
+      verticalPosition: 'top'
+    })
+  }
+
+
+
 }

@@ -6,6 +6,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { LayoutComponent } from './layout/layout.component';
 import { AddComicComponent } from './add-comic/add-comic.component';
 import { ComicListComponent } from './comic-list/comic-list.component';
+import { DeleteComicComponent } from './delete-comic/delete-comic.component'
 
 const routes: Routes = [
   {
