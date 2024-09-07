@@ -14,6 +14,7 @@ import { ComicListComponent } from './comic-list/comic-list.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DeleteButtonComponent } from './Shared/delete-button/delete-button.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomePageComponent,
     LayoutComponent,
     AddComicComponent,
-    ComicListComponent
+    ComicListComponent,
+    DeleteButtonComponent
   ],
   imports: [
     BrowserModule,

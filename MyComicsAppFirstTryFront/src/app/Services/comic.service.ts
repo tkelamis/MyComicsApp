@@ -11,6 +11,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 export class ComicService {
 
   private apiGetUrl = 'https://localhost:7166/api/Comic';
+  //private apiGetUrl = 'http://localhost:5131/api/Comic';
 
   constructor(private httpService: HttpClient) { }
 

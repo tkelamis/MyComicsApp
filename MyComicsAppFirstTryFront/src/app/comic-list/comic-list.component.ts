@@ -38,4 +38,9 @@ export class ComicListComponent {
       console.error('Invalid comic or comic ID.');
     }
   }
+
+  cancelDelete(): void {
+    // Handle cancellation if needed
+    console.log('Delete action was canceled');
+  }
 }

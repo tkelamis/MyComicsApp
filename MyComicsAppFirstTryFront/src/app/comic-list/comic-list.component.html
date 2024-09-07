@@ -23,7 +23,10 @@
         <td>{{ comic.pages }}</td>
         <td>x</td>
         <td>
-          <button type="button" class="btn btn-danger" (click)="deleteComic(comic)">Remove</button>
+          <app-delete-button [comic]="comic"
+                             (delete)="deleteComic($event)"
+                             (cancel)="cancelDelete()">
+          </app-delete-button>
         </td>
       </tr>
     </tbody>
