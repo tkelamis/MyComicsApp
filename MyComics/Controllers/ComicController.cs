@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyComics.Data;
 using MyComics.Interfaces;
@@ -9,6 +10,7 @@ using MyComics.ViewModels;
 
 namespace MyComics.Controllers
 {
+    
     [ApiController]
     [Route("api/[controller]")]
     public class ComicController : ControllerBase
@@ -28,6 +30,7 @@ namespace MyComics.Controllers
             _comicMapper = mapper;
         }
 
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> GetComics()
         {
