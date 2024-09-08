@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Comic } from '../Shared/Models/Comic';
-import { ComicService } from '../Services/comic.service';
 import { Router } from '@angular/router';
+import { Comic } from '../../Shared/Models/Comic';
+import { ComicService } from '../../Services/comic.service';
 
 @Component({
   selector: 'app-comics',

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Comic } from '../Shared/Models/Comic';
 import { FormBuilder, Validators } from '@angular/forms';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { url } from 'inspector';
-import { ComicService } from '../Services/comic.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Comic } from '../../../Shared/Models/Comic';
+import { ComicService } from '../../../Services/comic.service';
 
 
 

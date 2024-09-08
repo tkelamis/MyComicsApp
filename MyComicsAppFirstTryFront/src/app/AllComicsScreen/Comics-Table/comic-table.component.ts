@@ -1,14 +1,14 @@
 import { Component, Input } from '@angular/core';
-import { ComicService } from '../Services/comic.service';
-import { Comic } from '../Shared/Models/Comic';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ComicService } from '../../Services/comic.service';
+import { Comic } from '../../Shared/Models/Comic';
 
 @Component({
-  selector: 'app-comic-list',
-  templateUrl: './comic-list.component.html',
-  styleUrl: './comic-list.component.css'
+  selector: 'app-comic-table',
+  templateUrl: './comic-table.component.html',
+  styleUrl: './comic-table.component.css'
 })
-export class ComicListComponent {
+export class ComicTableComponent {
   comics: Comic[] = [];
 
   constructor(private comicService: ComicService, private snackBar: MatSnackBar) { }
@@ -22,6 +22,16 @@ export class ComicListComponent {
     this.comicService.getComics().subscribe((data: Comic[]) => {
       this.comics = data;
     });
+  }
+
+  onRefreshRequestedAfterAdd(event: { flag?: boolean, comic?: Comic }) {
+    if (event.flag) {
+      this.snackBarMessageAddSuccess(event.comic?.title);
+      this.getAllComicsFromAPI();
+    }
+    else {
+      this.snackBarMessageAddFailed(event.comic?.title);
+    }
   }
 
   onRefreshRequestedAfterDelete(event: { flag?: boolean, comic?: Comic }) {
@@ -48,6 +58,24 @@ export class ComicListComponent {
   snackBarMessageDeletionFailed(textToAdd: any): void {
     const title = String(textToAdd);
     this.snackBar.open(`Comic "${title}" deletion failed!`, undefined, {
+      duration: 3000,
+      horizontalPosition: 'center',
+      verticalPosition: 'top'
+    })
+  }
+
+  snackBarMessageAddSuccess(textToAdd: any): void {
+    const title = String(textToAdd);
+    this.snackBar.open(`Comic "${title}" added successfully!`, undefined, {
+      duration: 3000,
+      horizontalPosition: 'center',
+      verticalPosition: 'top'
+    })
+  }
+
+  snackBarMessageAddFailed(textToAdd: any): void {
+    const title = String(textToAdd);
+    this.snackBar.open(`Comic "${title}" added failed!`, undefined, {
       duration: 3000,
       horizontalPosition: 'center',
       verticalPosition: 'top'

@@ -1,47 +1,40 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Comic } from '../Shared/Models/Comic';
-import { ComicService } from '../Services/comic.service';
+import { Comic } from '../../../Shared/Models/Comic';
+import { ComicService } from '../../../Services/comic.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-delete-comic',
-  templateUrl: './delete-comic.component.html',
-  styleUrl: './delete-comic.component.css'
+  selector: 'app-add-comic-to-my-comics',
+  templateUrl: './add-comic-to-my-comics.component.html',
+  styleUrl: './add-comic-to-my-comics.component.css'
 })
-export class DeleteComicComponent {
+export class AddComicToMyComicsComponent {
   @Input() comic: any;
   @Output() refreshRequested = new EventEmitter<{ flag: boolean, comic?: Comic }>();
   comics: Comic[] = [];
 
-  showConfirm: boolean = false;
+  showAddConfirm: boolean = false;
 
   constructor(private comicService: ComicService, private router: Router) { }
 
   ngOnInit(): void {
-    this.getAllComicsFromAPI();
   }
 
-  getAllComicsFromAPI(): void {
-    this.comicService.getComics().subscribe((data: Comic[]) => {
-      this.comics = data;
-    });
+  toggleAddConfirm() {
+    this.showAddConfirm = !this.showAddConfirm;
   }
 
-  toggleConfirm() {
-    this.showConfirm = !this.showConfirm;
+  confirmAdd() {
+    this.AddComic(this.comic);
+    this.showAddConfirm = false;
   }
 
-  confirmDelete() {
-    this.deleteComic(this.comic);
-    this.showConfirm = false;
-  }
-
-  cancelDelete() {
+  cancelAdd() {
     console.log('Delete action was canceled');
-    this.showConfirm = false;
+    this.showAddConfirm = false;
   }
 
-  deleteComic(comic: Comic) {
+  AddComic(comic: Comic) {
     if (comic && comic.id) {
       this.comicService.deleteComicFromDatabase(comic.id.toString()).subscribe(
         () => {

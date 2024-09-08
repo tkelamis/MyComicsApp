@@ -23,8 +23,11 @@
         <td>{{ comic.pages }}</td>
         <td>x</td>
         <td>
-          <app-delete-comic
+          <app-add-comic-to-my-comics
                             [comic]="comic"
+                            (refreshRequested)="onRefreshRequestedAfterDelete($event)">
+          </app-add-comic-to-my-comics>
+          <app-delete-comic [comic]="comic"
                             (refreshRequested)="onRefreshRequestedAfterDelete($event)">
           </app-delete-comic>
         </td>

@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ComicsComponent } from './comics/comics.component';
+import { ComicsComponent } from './MyComicsScreen/comics/comics.component';
 import { ComicDetailsComponent } from './comic-details/comic-details.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomePageComponent } from './home-page/home-page.component';
 import { LayoutComponent } from './layout/layout.component';
-import { AddComicComponent } from './add-comic/add-comic.component';
-import { ComicListComponent } from './comic-list/comic-list.component';
+import { AddComicComponent } from './AllComicsScreen/Comics-Table/Add-comic/add-comic.component';
+import { ComicTableComponent } from './AllComicsScreen/Comics-Table/comic-table.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DeleteComicComponent } from './delete-comic/delete-comic.component';
+import { DeleteComicComponent } from './AllComicsScreen/Comics-Table/Delete-comic/delete-comic.component';
+import { AddComicToMyComicsComponent } from './AllComicsScreen/Comics-Table/add-comic-to-my-comics/add-comic-to-my-comics.component';
 
 @NgModule({
   declarations: [
@@ -24,8 +24,9 @@ import { DeleteComicComponent } from './delete-comic/delete-comic.component';
     HomePageComponent,
     LayoutComponent,
     AddComicComponent,
-    ComicListComponent,
-    DeleteComicComponent
+    ComicTableComponent,
+    DeleteComicComponent,
+    AddComicToMyComicsComponent
   ],
   imports: [
     BrowserModule,
