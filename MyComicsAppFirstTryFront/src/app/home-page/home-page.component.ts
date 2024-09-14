@@ -3,7 +3,9 @@ import { ComicService } from '../Services/comic.service';
 import { Comic } from '../Shared/Models/Comic';
 import { FormBuilder, Validators } from '@angular/forms';
 import { User } from '../Shared/Models/User';
-import { UserService } from '../user.service';
+import { UserService } from '../Services/user.service';
+import { HttpResponse } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -12,59 +14,63 @@ import { UserService } from '../user.service';
   styleUrl: './home-page.component.css'
 })
 export class HomePageComponent {
-  user: User = {};
-  logIn: boolean = false;
-  signUp: boolean = false;
+
+  userToSend: User = {};
+;
 
   myReactiveForm = this.formBuilder.group({
     Email: ['', [Validators.required]],
     Password: [''],
   })
 
-  constructor(private formBuilder:FormBuilder, private userService: UserService) { }
+  constructor(private formBuilder: FormBuilder,
+    private userService: UserService,
+    private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
 
   registerUserToBackEnd(): void {
 
-    const userToAdd = this.setUserFromFormValues();
+    const userToValidate = this.SetUserDataToSendFromForm();
 
-    this.sendUserToBackEnd(userToAdd);
-
+    this.loginUser(userToValidate);
   }
 
-  setUserFromFormValues(): User {
-    if (this.myReactiveForm.value) {
-      const valuesPassedFromFields = this.myReactiveForm.value;
-      this.user.Email = valuesPassedFromFields.Email;
-      this.user.Password = valuesPassedFromFields.Password;
-    }
-    console.log(this.user);
-    return this.user;
-  }
-
-  sendUserToBackEnd(userToSend: User): void {
-    this.userService.postUserToBackEnd(userToSend).subscribe(
-      (result) => {
-        console.log('New user created with ID:', result.id);
+  loginUser(user: User): void {
+    this.userService.postUserDataToBackEnd(user).subscribe(
+      response => {
+        if (response.body?.token) {
+          this.userService.saveToken(response.body.token); // Save the token in local storage
+          this.snackBar.open(`Welcome ${response.body.email}!`, 'Close', {
+            duration: 5000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top'
+          });
+        }
       },
-      (error) => {
-        console.error('Error creating user:', error);
+      error => {
+        this.snackBar.open('Login failed. Please check your credentials.', 'Close', {
+          duration: 5000,
+          horizontalPosition: 'center',
+          verticalPosition: 'top'
+        });
       }
-    )
+    );
   }
 
-  SetLogInTrue(): void {
-    this.logIn = true;
-    console.log(this.logIn);
-  }
-  SetSignUpTrue(): void {
-    this.signUp = true;
+  logOut(): void {
+    this.userService.logout();
+    this.snackBar.open('You have been logged out.', 'Close', {
+      duration: 5000,
+      horizontalPosition: 'center',
+      verticalPosition: 'top'
+    });
   }
 
-  SetFlagsFalse(): void {
-    this.logIn = false;
-    this.signUp = false;
+  SetUserDataToSendFromForm(): User {
+    this.userToSend.email = this.myReactiveForm.value.Email;
+    this.userToSend.password = this.myReactiveForm.value.Password;
+    return this.userToSend;
   }
 }

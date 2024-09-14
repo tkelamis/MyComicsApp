@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ComicsComponent } from './MyComicsScreen/comics/comics.component';
 import { ComicDetailsComponent } from './comic-details/comic-details.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -15,6 +15,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DeleteComicComponent } from './AllComicsScreen/Comics-Table/Delete-comic/delete-comic.component';
 import { AddComicToMyComicsComponent } from './AllComicsScreen/Comics-Table/add-comic-to-my-comics/add-comic-to-my-comics.component';
+import { AuthInterceptor } from './Services/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,12 @@ import { AddComicToMyComicsComponent } from './AllComicsScreen/Comics-Table/add-
   ],
   providers: [
     provideClientHydration(),
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

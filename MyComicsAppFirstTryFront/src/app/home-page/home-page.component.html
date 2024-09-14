@@ -1,55 +1,24 @@
-ng se<div class="fullscreen-background">
-  <div *ngIf="!logIn && !signUp" class="buttons">
-    <button type="button" class="btn btn-primary" (click)="SetLogInTrue()">Log In</button>
-    <button type="button" class="btn btn-secondary" (click)="SetSignUpTrue()">Sign Up</button>
-  </div>
-
-
-  <div *ngIf="logIn" class="container">
-    <h1>Login</h1>
+<div class="container">
+    <h1 style="color:aliceblue">Login</h1>
     <form [formGroup]="myReactiveForm">
       <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
+        <label for="exampleInputEmail1" style="color:aliceblue">Email address</label>
         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" formControlName="Email">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        <small id="emailHelp" class="form-text text-muted" style="color:aliceblue !important">We'll never share your email with anyone else.</small>
       </div>
       <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
+        <label for="exampleInputPassword1" style="color:aliceblue">Password</label>
         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" formControlName="Password">
       </div>
       <div class="form-group form-check">
         <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        <label class="form-check-label" for="exampleCheck1" style="color:aliceblue">Check me out</label>
       </div>
-      <button type="submit" class="btn btn-primary" (click)="sendUserToBackEnd(user)">Submit</button>
+      <button type="submit" class="btn btn-primary" style="color:aliceblue" (click)="registerUserToBackEnd()">Submit</button>
+      <button class="btn btn-primary" style="color:aliceblue" (click)="logOut()">Log Out</button>
     </form>
     <div>
-      <button type="button" class="btn btn-primary" (click)="SetFlagsFalse()">Back</button>
+      <button type="button" class="btn btn-primary" style="color:aliceblue">Back</button>
     </div>
-  </div>
-
-  <div *ngIf="signUp" class="container">
-    <h1>Sign Up</h1>
-    <form [formGroup]="myReactiveForm">
-      <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" formControlName="Email">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-      </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" formControlName="Password">
-      </div>
-      <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-    <div>
-      <button type="button" class="btn btn-primary" (click)="SetFlagsFalse()">Back</button>
-    </div>
-  </div>
-
 </div>
 
