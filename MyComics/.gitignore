@@ -1,2 +1,6 @@
-MyComics/obj/
-MyComics/bin/
+obj/
+bin/
+*.cache
+*.pdb
+*.dll
+*.json
