@@ -16,6 +16,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class HomePageComponent {
 
   userToSend: User = {};
+  roles: string[] = [];
 ;
 
   myReactiveForm = this.formBuilder.group({
@@ -28,6 +29,7 @@ export class HomePageComponent {
     private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
+    this.userService.getRolesFromToken();
   }
 
   registerUserToBackEnd(): void {
@@ -41,7 +43,7 @@ export class HomePageComponent {
     this.userService.postUserDataToBackEnd(user).subscribe(
       response => {
         if (response.body?.token) {
-          this.userService.saveToken(response.body.token); // Save the token in local storage
+          this.userService.saveToken(response.body.token);
           this.snackBar.open(`Welcome ${response.body.email}!`, 'Close', {
             duration: 5000,
             horizontalPosition: 'center',
@@ -66,6 +68,13 @@ export class HomePageComponent {
       horizontalPosition: 'center',
       verticalPosition: 'top'
     });
+  }
+
+  getRolesFromToken(): void {
+    this.roles = this.userService.getRolesFromToken();
+    if (this.roles.length > 0) {
+      console.log('User roles:', this.roles);
+    }
   }
 
   SetUserDataToSendFromForm(): User {

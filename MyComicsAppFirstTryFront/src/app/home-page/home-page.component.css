@@ -23,11 +23,15 @@ body, html {
 .buttons {
   display: flex;
   gap: 3rem;
-  height: 100vh;
   justify-content: center;
   align-items: center;
 }
 
 .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
   margin-left: 0 !important;
+}
+
+.btn btn-primary {
+    background-color:darkred !important;
+
 }
