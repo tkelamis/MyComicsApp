@@ -2,9 +2,8 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../Shared/Models/User';
 import { Observable } from 'rxjs/internal/Observable';
-import  JwtPayload from 'jwt-decode';
-import { DecodedToken } from '../Shared/Models/decoded-token';
 import { jwtDecode } from 'jwt-decode';
+import { DecodedToken } from '../Shared/Models/Decoded_Token';
 
 
 @Injectable({
